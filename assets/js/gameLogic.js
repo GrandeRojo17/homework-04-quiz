@@ -44,7 +44,8 @@ var questions = [
 //create variables
 var Q = 0; //questions
 var correct = [];
-var time = 1000;
+var time = 30;
+var timerId;
 
 var startBtn = document.getElementById("start");
 var startScreenEl = document.getElementById("start-screen");
@@ -52,11 +53,25 @@ var endScreenEl = document.getElementById("end-screen");
 var quizScreenEl = document.getElementById("quiz-screen");
 var questionTitleEl = document.getElementById("question-title");
 var choicesEl = document.getElementById("choices");
+const timerEl = document.getElementById("timer");
+var initialInput = document.getElementById("initials");
+var initialBtn = document.getElementById("save-score");
+var scoreScreen = document.getElementById("score-screen");
+
+function setTimer() {
+  time--;
+  timerEl.textContent = time;
+  if (time <= 0) {
+    time = 0;
+    endQuiz();
+  }
+}
 
 function startQuiz() {
   startScreenEl.setAttribute("class", "hide");
   quizScreenEl.removeAttribute("class");
   buildQuestionCard();
+  timerId = setInterval(setTimer, 1000);
 }
 startBtn.addEventListener("click", startQuiz);
 
@@ -79,25 +94,29 @@ function buildQuestionCard() {
     choicesEl.appendChild(choiceNode);
   });
 
-
-function questionClick() {
-  //     compare this.value not equal answer if/else console.log wrong
-  // if it is wrong console.log
-  if (this.value !== questions[Q].answer) {
-    // show "wrong on screen"
-    //penalize timer
-    console.log("wrong the answer is"+ questions[Q].answer) ;
-  } else {
-    correct.push(questions[Q]);
-    console.log("correct");
-    //show right on screen
-    //add time to timer
+  function questionClick() {
+    //     compare this.value not equal answer if/else console.log wrong
+    // if it is wrong console.log
+    if (this.value !== questions[Q].answer) {
+      // show "wrong on screen"
+      //penalize timer
+      time -= 15;
+      if (time < 0) {
+        time = 0;
+      }
+    } else {
+      correct.push(questions[Q]);
+      console.log("correct");
+      //show right on screen
+      //add time to timer
+    }
+    Q++;
+    if (Q === questions.length) {
+      endQuiz();
+    } else {
+      buildQuestionCard();
+    }
   }
-
-  Q++;
-
-  buildQuestionCard();
-}
 
   //if else for if we run out of questions. Q===questions.length
   //create function to end quiz remove hide attribute from..remove class
@@ -106,6 +125,46 @@ function questionClick() {
   // if (Q === questions ){
   //     console.log("You have made it to the last question.")
   // }
+}
 
-  
+function endQuiz() {
+  clearInterval(timerId);
+  startScreenEl.innerHTML = "";
+  quizScreenEl.setAttribute("class", "hide");
+  endScreenEl.removeAttribute("class", "hide");
+}
+
+function saveHighScore() {
+  var initials = initialInput.value;
+
+  var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+  var savedScore = {
+    initials: initials,
+    score: time,
+  };
+  highscores.push(savedScore);
+
+  window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+  // window.location.href = "highScores.html";
+  printHighScores(highscores);
+}
+
+initialBtn.onclick = saveHighScore;
+
+function printHighScores(highscores) {
+  highscores.sort(function (a, b) {
+    return b.score - a.score;
+  });
+  scoreScreen.removeAttribute("class", "hide");
+  highscores.forEach(function (score) {
+    var li = document.createElement("li");
+    li.textContent = score.initials + " - " + score.score;
+
+    var scoreUl = document.getElementById("score-list");
+    scoreUl.innerHTML = "";
+
+    scoreUl.appendChild(li);
+  });
 }

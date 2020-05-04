@@ -1,67 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Questionaire</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <!-- Bootstrap File -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!--Loaded in the Jquery-->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-
-</head>
-<!-- lightRed:F376A8 red:C8326F lightBlue:7C94E3 blue:354D9E lightgreen:BEF779 green:8DD435 lightYellow:FFE47C yellow:E9C63A -->
-<!--CLICKED COLORS if buttons-->
-<!-- grayedRed:FDD3D4 darkred:A2585A grayedBlue:A9A5C1 darkblue:4B4471 grayedgreen:B6D9B4 darkgreen:4B8548 grayedYellow:FFF6D4 darkyellow:A49459 -->
-
-<body id="bg" class="">
-
-
-    <nav id="banner">
-
-        <h1 id="header" class="">Quizonator</h1>
-
-    </nav>
-    <div class="container" id="main">
-        <div class="container" id="start-screen">
-
-            I am a start screen
-            <button id="start">Start</button>
-        </div>
-
-        <div class="hide" id="quiz-screen">
-            <div id="question-title">Question goes here</div>
-            <div id="choices" class="choices">
-
-            </div>
-        </div>
-        <div class="hide" id="end-screen">
-            end screen
-        </div>
+  <body>
+    <div class="jumbotron" id="banner">
+      <h1 id="title">Quizonator</h1>
+      <div class="scores"><a href="highScores.html">View highScores</a></div>
     </div>
 
+    <div class="container" id="main">
+      <div class="card" id="start-screen">
+        <div id="init-box">
+          <!-- here to center up the div -->
+          Click "Start" to begin the quiz!
+        </div>
+        <button id="start" class="button">Start</button>
+      </div>
 
+      <div class="card hide" id="quiz-screen">
+        <h3 id="question-title" class="card-title">Question goes here</h3>
+        <div id="choices" class="choices"></div>
+        <div id="timer"></div>
+      </div>
+      <div class="card hide" id="end-screen">
+        <input type="text" id="initials" max="3" />
+        <button id="save-score">Save</button>
+      </div>
+      <div class="card hide" id="score-screen">
+        <ol id="score-list"></ol>
+      </div>
+    </div>
+    <footer class="footer"></footer>
 
-
-
-
-    <footer class="footer">
-
-
-
-    </footer>
-
-
-
-
-    <script src="script.js">
-    </script>
-
-</body>
-
+    <script src="assets/js/gameLogic.js"></script>
+  </body>
 </html>
