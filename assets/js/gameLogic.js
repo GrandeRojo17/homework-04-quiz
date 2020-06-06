@@ -15,7 +15,7 @@
 
 var questions = [
   {
-    question: "What is the state bird of Kansas",
+    question: "What is the state bird of Kansas?",
     choices: [
       "Cardinal",
       "BlueJay",
@@ -25,18 +25,18 @@ var questions = [
     answer: "Western Meadowlark",
   },
   {
-    question: "What is the opposite of Right",
+    question: "What is the opposite of Right?",
     choices: ["Left", "Up", "Wrong", "Canada"],
     answer: "Wrong",
   },
   {
-    question: "Finish the name. Fresh prince of ___ air",
+    question: "Finish the name. Fresh prince of ___ air?",
     choices: ["belle", "Bel", "fresh", "bell"],
     answer: "Bel",
   },
   {
     question: "Who won the 2020 Super Bowl",
-    choices: ["Cardinals", "Colorado Boulders ", "Seahawks", "Chiefs"],
+    choices: ["Cardinals", "Colorado Boulders ", "Seahawks", "Chiefs?"],
     answer: "Chiefs",
   },
 ];
@@ -44,15 +44,15 @@ var questions = [
 //create variables
 var Q = 0; //questions
 var correct = [];
-var time = 30;
+var time = 45;
 var timerId;
 
-var startBtn = document.getElementById("start");
-var startScreenEl = document.getElementById("start-screen");
-var endScreenEl = document.getElementById("end-screen");
-var quizScreenEl = document.getElementById("quiz-screen");
-var questionTitleEl = document.getElementById("question-title");
-var choicesEl = document.getElementById("choices");
+const startBtn = document.getElementById("start");
+const startScreenEl = document.getElementById("start-screen");
+const endScreenEl = document.getElementById("end-screen");
+const quizScreenEl = document.getElementById("quiz-screen");
+const questionTitleEl = document.getElementById("question-title");
+const choicesEl = document.getElementById("choices");
 const timerEl = document.getElementById("timer");
 var initialInput = document.getElementById("initials");
 var initialBtn = document.getElementById("save-score");
@@ -70,6 +70,7 @@ function setTimer() {
 function startQuiz() {
   startScreenEl.setAttribute("class", "hide");
   quizScreenEl.removeAttribute("class");
+  quizScreenEl.setAttribute("class", " card text-center");
   buildQuestionCard();
   timerId = setInterval(setTimer, 1000);
 }
@@ -100,7 +101,7 @@ function buildQuestionCard() {
     if (this.value !== questions[Q].answer) {
       // show "wrong on screen"
       //penalize timer
-      time -= 15;
+      time -= 10;
       if (time < 0) {
         time = 0;
       }
