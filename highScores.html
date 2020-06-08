@@ -20,26 +20,13 @@
   </head>
 
   <body>
-    <div class="jumbotron" id="banner">
+    <div class="jumbotron text-center" id="banner">
       <h1 id="title">Highscores</h1>
-      <div class="scores"><a href="./assets/">View highScores</a></div>
+      <div class="scores"><a href="./index.html">quiz page</a></div>
     </div>
 
     <div class="container-sm" id="main">
-      <div class="card mx-auto" id="start-screen">
-        <div id="init-box" class="">
-          <!-- here to center up the div -->
-          Click "Start" to begin the quiz!
-        </div>
-        <button id="start" class="button">Start</button>
-      </div>
-
-      <div class="card hide" id="quiz-screen">
-        <h3 id="question-title" class="card-title">Question goes here</h3>
-        <div id="choices" class="choices"></div>
-        <div id="timer"></div>
-      </div>
-      <div class="card hide" id="end-screen">
+      <div class="card mx-auto" id="end-screen">
         <input type="text" id="initials" max="3" />
         <button id="save-score">Save</button>
       </div>

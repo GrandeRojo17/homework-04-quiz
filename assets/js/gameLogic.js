@@ -70,7 +70,8 @@ function setTimer() {
 function startQuiz() {
   startScreenEl.setAttribute("class", "hide");
   quizScreenEl.removeAttribute("class");
-  quizScreenEl.setAttribute("class", " card text-center");
+  quizScreenEl.setAttribute("class", "mx-auto card text-center");
+
   buildQuestionCard();
   timerId = setInterval(setTimer, 1000);
 }
