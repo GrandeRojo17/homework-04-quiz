@@ -1,10 +1,14 @@
 # **PROJECT**: **JavaScript quiz**
+
 https://granderojo17.github.io/homework-04-quiz/
+
 ## By: David Y @GHUB: granderojo17
 
 #### Description: <p>A fun quiz designed using dom manipulations and JavaScript.</p>
 
-#License : mit
+![here](images/ku_bootCamp_HomeWorkPic_quiz_01.PNG)
+
+# License : mit
 
 <h2>Table of Contents</h2>
 
@@ -43,5 +47,7 @@ No Contributions.
 
 - (What questions should we be asking?)
   If you have any questions about the repo, open an issue or contact
-  ![Github Username avatar](https://avatars3.githubusercontent.com/u/38540605?v=4)
-  ![null] (mailto:david.yennerell@gmail.com David Yennerell "personal Email")] directly. Send any ideas my way.
+  <img src = 'https://avatars3.githubusercontent.com/u/38540605?v=4' height = 100px width = 125px>
+  ## Contact
+  <!-- ![Github Profile Picture](https://avatars3.githubusercontent.com/u/38540605?v=4) -->
+  [GrandeRojo17](mailto:david.yennerell@gmail.com "personal Email") directly. Send any ideas my way.
