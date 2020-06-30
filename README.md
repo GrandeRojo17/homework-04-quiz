@@ -12,14 +12,14 @@ https://granderojo17.github.io/homework-04-quiz/
 
 <h2>Table of Contents</h2>
 
-\*[Installation]('#installation')
+- [Installation]('#installation')
 
-- Usage
+- [Usage]('#Usage')
 
-- License
-- Contributing
-- Tests
-- Questions
+- [License]('#License')
+- [Contributing]('#Contributing')
+- [Tests]('#Tests')
+- [questions]('#questions')
 
 <h4>Installation </h4>
 To install necessary dependencies, run the following command:
